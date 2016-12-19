@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Pie chart Anychart AngularJS plugin demo.</title>
+    <script src="https://code.angularjs.org/1.6.0/angular.min.js"></script>
+    <script src="http://cdn.anychart.com/js/latest/anychart.min.js"></script>
+    <script src="../src/anychart-angularjs.js"></script>
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <script>
+        (function(){
+            'use strict';
+            var myApp = angular.module('MyApp', ['anychart-angularjs']);
+
+            myApp.controller('MyCtrl', ['$scope', function($scope) {
+                $scope.myData = [
+                    ["Chocolate", 5],
+                    ["Rhubarb compote", 2],
+                    ["Crêpe Suzette", 2],
+                    ["American blueberry", 2],
+                    ["Buttermilk", 1]
+                ];
+            }]);
+        })();
+    </script>
+</head>
+<body ng-controller="MyCtrl">
+    <div anychart ac-type="pie" ac-data="myData" ac-title="Simple Pie Demo" ac-legend="true" style="width: 100%; height: 100%"></div>
+</body>
+</html>

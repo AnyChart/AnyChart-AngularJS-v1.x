@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Pie chart Anychart AngularJS plugin demo.</title>
+    <script src="https://code.angularjs.org/1.6.0/angular.min.js"></script>
+    <script src="http://cdn.anychart.com/js/latest/anychart.min.js"></script>
+    <script src="../src/anychart-angularjs.js"></script>
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <script>
+        (function() {
+            'use strict';
+
+            window.requestAnimationFrame = window.requestAnimationFrame ||
+                    window.webkitRequestAnimationFrame ||
+                    window.mozRequestAnimationFrame ||
+                    window.oRequestAnimationFrame ||
+                    window.msRequestAnimationFrame ||
+                    function(callback) {
+                        setTimeout(callback, 1000 / 60);
+                    };
+
+
+            draw();
+
+            function draw() {
+                window.requestAnimationFrame(draw);
+                repaint();
+            }
+
+            function repaint() {
+
+            }
+
+
+            angular
+                    .module('MyApp', ['anychart-angularjs'])
+                    .controller('MyCtrl', ['$scope', 'charts', function($scope, charts) {
+                        var stage = anychart.graphics.create('custom_stage_container');
+                        var bounds = stage.getBounds();
+                        var radius = 20;
+                        stage.rect(bounds.left, bounds.top, bounds.width, bounds.height);
+                        var circle = stage.circle(radius + 1, radius + 1, radius);
+                        circle.fill(['#fff', '#333'], 0.5, 0.5, null, 1, 0.3, 0.3).stroke('#222');
+
+                        var stepX = 7 - 5 * Math.random();
+                        var stepY = 7 - 5 * Math.random();
+
+                        draw();
+
+                        function draw() {
+                            window.requestAnimationFrame(draw);
+                            repaint();
+                        }
+
+                        function repaint() {
+                            if (circle.centerX() + radius >= bounds.left + bounds.width || circle.centerX() - radius <= bounds.left)
+                                stepX = -stepX;
+                            if (circle.centerY() + radius >= bounds.top + bounds.height || circle.centerY() - radius <= bounds.top)
+                                stepY = -stepY;
+
+                            stage.suspend();
+                            circle
+                                    .centerX(circle.centerX() + stepX)
+                                    .centerY(circle.centerY() + stepY);
+                            stage.resume();
+                        }
+
+                        //Notify plugin about the custom stage is in use.
+                        $scope.stg = stage;
+
+                    }]);
+        })();
+    </script>
+</head>
+<body ng-controller="MyCtrl">
+<div anychart-stage style="width: 600px; height: 400px" instance="stg" id="custom_stage_container"></div>
+</body>
+</html>
