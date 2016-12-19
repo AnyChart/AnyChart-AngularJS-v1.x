@@ -31,18 +31,6 @@
                     };
 
 
-            draw();
-
-            function draw() {
-                window.requestAnimationFrame(draw);
-                repaint();
-            }
-
-            function repaint() {
-
-            }
-
-
             angular
                     .module('MyApp', ['anychart-angularjs'])
                     .controller('MyCtrl', ['$scope', 'charts', function($scope, charts) {

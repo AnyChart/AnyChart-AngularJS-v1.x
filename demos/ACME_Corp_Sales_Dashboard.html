@@ -19,6 +19,7 @@
 
     <script>
         (function() {
+            'use strict';
 
             // Filters
             var regionFilter = null;
@@ -248,7 +249,6 @@
             }
 
 
-            'use strict';
             angular
                     .module('MyApp', ['anychart-angularjs'])
                     .controller('MyCtrl', ['$scope', 'charts', function($scope, charts) {
