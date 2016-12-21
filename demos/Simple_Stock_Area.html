@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Anychart AngularJS plugin demo.</title>
+    <script src="https://code.angularjs.org/1.6.0/angular.min.js"></script>
+    <script src="http://cdn.anychart.com/js/latest/anychart-bundle.min.js"></script>
+    <script src="http://cdn.anychart.com/csv-data/msft-daily-short.js"></script>
+    <script src="http://cdn.anychart.com/csv-data/orcl-daily-short.js"></script>
+    <script src="http://cdn.anychart.com/csv-data/csco-daily-short.js"></script>
+    <script src="http://cdn.anychart.com/csv-data/ibm-daily-short.js"></script>
+    <script src="../src/anychart-angularjs.js"></script>
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <script>
+        (function() {
+            'use strict';
+            angular
+                    .module('MyApp', ['anychart-angularjs'])
+                    .controller('MyCtrl', ['$scope', function($scope) {
+                        // create data tables on loaded data
+                        var msftDataTable = anychart.data.table();
+                        msftDataTable.addData(get_msft_daily_short_data());
+
+                        var orclDataTable = anychart.data.table();
+                        orclDataTable.addData(get_orcl_daily_short_data());
+
+                        var cscoDataTable = anychart.data.table();
+                        cscoDataTable.addData(get_csco_daily_short_data());
+
+                        var ibmDataTable = anychart.data.table();
+                        ibmDataTable.addData(get_ibm_daily_short_data());
+
+                        var chart = anychart.stock();
+
+                        var firstPlot = chart.plot(0);
+                        firstPlot.area(msftDataTable.mapAs({'value': 4})).name('MSFT');
+
+                        var secondPlot = chart.plot(1);
+                        secondPlot.splineArea(orclDataTable.mapAs({'value': 4})).fill('#1976d2 0.65').stroke('1.5 #1976d2').name('ORCL');
+
+                        var thirdPlot = chart.plot(2);
+                        thirdPlot.stepArea(cscoDataTable.mapAs({'value': 4})).fill('#ef6c00 0.65').stroke('1.5 #ef6c00').name('CSCO');
+
+                        var forthPlot = chart.plot(3);
+                        forthPlot.line(msftDataTable.mapAs({'value': 4})).name('MSFT').tooltip(null);
+                        forthPlot.spline(orclDataTable.mapAs({'value': 4})).name('ORCL').tooltip(null);
+                        forthPlot.stepLine(cscoDataTable.mapAs({'value': 4})).name('CSCO').tooltip(null);
+
+                        chart.scroller().area(msftDataTable.mapAs({'value': 4}));
+
+                        $scope.stock = chart;
+
+                        $scope.selectRange = function(chart) {
+                            chart.selectRange('2005-01-03', '2005-11-20');
+                        };
+
+                    }]);
+        })();
+    </script>
+</head>
+<body ng-controller="MyCtrl">
+<div
+        anystock
+        instance="stock"
+        after-draw="selectRange"
+        style="width: 100%; height: 100%">
+
+</div>
+</body>
+</html>
