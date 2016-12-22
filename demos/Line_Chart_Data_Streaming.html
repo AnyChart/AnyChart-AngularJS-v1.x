@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Anychart AngularJS plugin demo.</title>
+    <script src="../lib/angular.min.js"></script>
+    <script src="../lib/anychart-bundle.min.js"></script>
+    <script src="../src/anychart-angularjs.js"></script>
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <script>
+        (function() {
+            'use strict';
+
+            var counter = 0;
+
+            function random() {
+                return 100 - Math.round(100 * Math.random());
+            }
+
+            var data = [];
+            for (var i = 0; i < 50; i++)
+                data.push([counter++, random()]);
+            var dataSet = anychart.data.set(data);
+
+            angular
+                    .module('MyApp', ['anychart-angularjs'])
+                    .controller('MyCtrl', ['$scope', '$http', 'AnychartService', function($scope, $http, AnychartService) {
+                        $scope.data = dataSet;
+
+                        setInterval(function() {
+                            dataSet.remove(0);
+                            dataSet.append([counter++, random()]);
+                        }, 500);
+
+                        $scope.afterDraw = function(chart) {
+                          chart.yScale().minimum(0).maximum(100);
+                        };
+                    }]);
+
+
+        })();
+    </script>
+</head>
+<body ng-controller="MyCtrl">
+<div
+        anychart
+        ac-type="line"
+        ac-data="data"
+        ac-chart-draw="afterDraw"
+        style="width: 100%; height: 100%">
+
+</div>
+</body>
+</html>

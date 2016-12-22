@@ -251,7 +251,7 @@
 
             angular
                     .module('MyApp', ['anychart-angularjs'])
-                    .controller('MyCtrl', ['$scope', 'charts', function($scope, charts) {
+                    .controller('MyCtrl', ['$scope', 'AnychartService', function($scope, AnychartService) {
 
                         // Create Units sold chart, Area
                         unitsChart = unitsSoldChart();
@@ -283,7 +283,7 @@
 
                         updateData();
 
-                        charts.push(
+                        AnychartService.charts.push(
                                 unitsChart,
                                 regionChart,
                                 deviceChart,

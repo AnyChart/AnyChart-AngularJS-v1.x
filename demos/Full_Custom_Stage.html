@@ -33,7 +33,7 @@
 
             angular
                     .module('MyApp', ['anychart-angularjs'])
-                    .controller('MyCtrl', ['$scope', 'charts', function($scope, charts) {
+                    .controller('MyCtrl', ['$scope', 'AnychartService', function($scope, AnychartService) {
                         var stage = anychart.graphics.create('custom_stage_container');
                         var bounds = stage.getBounds();
                         var radius = 20;

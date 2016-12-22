@@ -22,7 +22,7 @@
             'use strict';
             angular
                     .module('MyApp', ['anychart-angularjs'])
-                    .controller('MyCtrl', ['$scope', 'charts', function($scope, charts) {
+                    .controller('MyCtrl', ['$scope', 'AnychartService', function($scope, AnychartService) {
                         var data = [
                             ["Chocolate", 5],
                             ["Rhubarb compote", 2],
@@ -43,7 +43,7 @@
                             chart.title('After Draw Title');
                         };
 
-                        charts.push(
+                        AnychartService.charts.push(
                                 {
                                     chart: pie,
                                     chartDraw: afterDrawCallback

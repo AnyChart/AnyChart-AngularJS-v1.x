@@ -1,6 +1,11 @@
 angular
     .module('anychart-angularjs', [])
-    .value('charts', [])
+    .factory('AnychartService', function() {
+      return {
+        chart: null,
+        charts: []
+      };
+    })
     .directive('anychartStage', [function() {
       return {
         restrict: 'EA',
@@ -8,7 +13,7 @@ angular
         scope: {
           acInstance: '=?'
         },
-        controller: ['$scope', '$element', 'charts', StageController]
+        controller: ['$scope', '$element', 'AnychartService', StageController]
       };
     }])
     .directive('anychart', [function() {
@@ -23,7 +28,7 @@ angular
           acInstance: '=?',
           acChartDraw: '=?'
         },
-        controller: ['$scope', '$element', AnychartController],
+        controller: ['$scope', '$element', 'AnychartService', AnychartController],
         link: AnychartLink
       };
     }])
@@ -39,7 +44,7 @@ angular
           acChartDraw: '=?',
           acSplitterPosition: '@'
         },
-        controller: ['$scope', '$element', AnyganttController],
+        controller: ['$scope', '$element', 'AnychartService', AnyganttController],
         link: AnychartLink
       }
     }])
@@ -56,7 +61,7 @@ angular
           acInstance: '=?',
           acChartDraw: '=?'
         },
-        controller: ['$scope', '$element', AnymapController],
+        controller: ['$scope', '$element', 'AnychartService', AnymapController],
         link: AnychartLink
       }
     }])
@@ -68,17 +73,18 @@ angular
           acInstance: '=?',
           acChartDraw: '=?'
         },
-        controller: ['$scope', '$element', AnystockController],
+        controller: ['$scope', '$element', 'AnychartService', AnystockController],
         link: AnychartLink
       }
     }]);
 
 
-function StageController($scope, $element, charts) {
+function StageController($scope, $element, AnychartService) {
+  var service = AnychartService;
   this.$onInit = function() {
     var stage = $scope.acInstance || anychart.graphics.create($element[0]);
     stage.suspend();
-    angular.forEach(charts, function(chartData) {
+    angular.forEach(service.charts, function(chartData) {
       var ch = chartData.chart ? chartData.chart : chartData;
       ch.container(stage);
       ch.draw();
@@ -88,7 +94,7 @@ function StageController($scope, $element, charts) {
 
     //After draw
     stage.suspend();
-    angular.forEach(charts, function(chartData) {
+    angular.forEach(service.charts, function(chartData) {
       if (chartData.chartDraw) {
         chartData.chartDraw.call(chartData.chart, chartData.chart);
       }
@@ -98,9 +104,11 @@ function StageController($scope, $element, charts) {
 }
 
 
-function AnychartController($scope, $element) {
+function AnychartController($scope, $element, AnychartService) {
   this.$onInit = function() {
     $scope.chart = $scope.acInstance || anychart[$scope.acType || 'line']();
+    AnychartService.chart = $scope.chart;
+    AnychartService.charts.push($scope.chart);
 
     if ($scope.chart.data && $scope.acData)
       $scope.chart.data($scope.acData);
@@ -113,7 +121,7 @@ function AnychartController($scope, $element) {
 }
 
 
-function AnychartLink($scope, $element) {
+function AnychartLink($scope, $element, AnychartService) {
   $element.ready(function() {
     $scope.chart.container($element[0]);
     $scope.chart.draw();
@@ -123,9 +131,11 @@ function AnychartLink($scope, $element) {
 }
 
 
-function AnyganttController($scope, $element) {
+function AnyganttController($scope, $element, AnychartService) {
   this.$onInit = function() {
     $scope.chart = $scope.acInstance || anychart[$scope.acType]();
+    AnychartService.chart = $scope.chart;
+    AnychartService.charts.push($scope.chart);
 
     if ($scope.chart.data && $scope.acData)
       $scope.chart.data($scope.acData);
@@ -143,9 +153,11 @@ function AnyganttController($scope, $element) {
 }
 
 
-function AnymapController($scope, $element) {
+function AnymapController($scope, $element, AnychartService) {
   this.$onInit = function() {
     $scope.chart = $scope.acInstance || anychart[$scope.acType || 'map']($scope.acData);
+    AnychartService.chart = $scope.chart;
+    AnychartService.charts.push($scope.chart);
 
     $scope.chart.geoData($scope.acGeoData);
     $scope.chart.title($scope.acTitle);
@@ -157,8 +169,10 @@ function AnymapController($scope, $element) {
 }
 
 
-function AnystockController($scope, $element) {
+function AnystockController($scope, $element, AnychartService) {
   this.$onInit = function() {
     $scope.chart = $scope.acInstance;
+    AnychartService.chart = $scope.chart;
+    AnychartService.charts.push($scope.chart);
   }
 }
