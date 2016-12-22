@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Anychart AngularJS plugin demo.</title>
-    <script src="https://code.angularjs.org/1.6.0/angular.min.js"></script>
-    <script src="http://cdn.anychart.com/js/latest/anychart-bundle.min.js"></script>
-    <script src="http://cdn.anychart.com/gantt-data/resources-simple.js"></script>
+    <script src="../lib/angular.min.js"></script>
+    <script src="../lib/anychart-bundle.min.js"></script>
+    <script src="../res/resources-simple.js"></script>
     <script src="../src/anychart-angularjs.js"></script>
 
     <style>
@@ -120,8 +120,8 @@
         ac-data="myData"
         ac-title="External events"
         ac-splitter-position="200"
-        instance="ch"
-        after-draw="decorate"
+        ac-instance="ch"
+        ac-chart-draw="decorate"
         style="width: 100%; height: 100%">
 </div>
 </body>

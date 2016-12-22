@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Anychart AngularJS plugin demo.</title>
-    <script src="https://code.angularjs.org/1.6.0/angular.min.js"></script>
-    <script src="http://cdn.anychart.com/js/latest/anychart-bundle.min.js"></script>
-    <script src="http://cdn.anychart.com/csv-data/msft-daily-short.js"></script>
-    <script src="http://cdn.anychart.com/csv-data/orcl-daily-short.js"></script>
-    <script src="http://cdn.anychart.com/csv-data/csco-daily-short.js"></script>
-    <script src="http://cdn.anychart.com/csv-data/ibm-daily-short.js"></script>
+    <script src="../lib/angular.min.js"></script>
+    <script src="../lib/anychart-bundle.min.js"></script>
+    <script src="../res/msft-daily-short.js"></script>
+    <script src="../res/orcl-daily-short.js"></script>
+    <script src="../res/csco-daily-short.js"></script>
+    <script src="../res/ibm-daily-short.js"></script>
     <script src="../src/anychart-angularjs.js"></script>
 
     <style>
@@ -70,8 +70,8 @@
 <body ng-controller="MyCtrl">
 <div
         anystock
-        instance="stock"
-        after-draw="selectRange"
+        ac-instance="stock"
+        ac-chart-draw="selectRange"
         style="width: 100%; height: 100%">
 
 </div>
