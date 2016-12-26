@@ -36,13 +36,12 @@
                     .controller('MyCtrl', ['$scope', '$http', 'AnychartService', function($scope, $http, AnychartService) {
                         $scope.data = dataSet;
 
-                        setInterval(function() {
-                            dataSet.remove(0);
-                            dataSet.append([counter++, random()]);
-                        }, 500);
-
                         $scope.afterDraw = function(chart) {
-                          chart.yScale().minimum(0).maximum(100);
+                            chart.yScale().minimum(0).maximum(100);
+                            setInterval(function() {
+                                dataSet.remove(0);
+                                dataSet.append([counter++, random()]);
+                            }, 500);
                         };
                     }]);
 
