@@ -107,11 +107,11 @@ angular
 
 Directive | Code sample | Description
 --- | --- | ---
-`anychart` | `<div anychart></div>` | Supports attributes specific to this directive and generates a chart belonging to aychart module (not gantt, map or stock chart types)
-`anygantt` | `<div anygantt></div>` | Supports specific attributes and generates a chart belonging to anygantt module (`ganttResource` and `ganttProject`)
-`anymap` | `<div anymap></div>` | Supports specific attributes and generates a chart with map-specific series (`choropleth`, `bubbleMap`, etc.).
-`anystock` | `<div anystock></div>` | Supports specific attributes and generates a Stock-Chart.
-`anychart-stage` | `<div anychart-stage></div>` | Generates anychart [stage](http://docs.anychart.com/7.12.0/Dashboards/Stage-Based_Layout) to provide any kind of custom drawing (including dashboards)
+anychart | `<div anychart></div>` | Supports attributes specific to this directive and generates a chart belonging to aychart module (not gantt, map or stock chart types)
+anygantt | `<div anygantt></div>` | Supports specific attributes and generates a chart belonging to anygantt module (`ganttResource` and `ganttProject`)
+anymap | `<div anymap></div>` | Supports specific attributes and generates a chart with map-specific series (`choropleth`, `bubbleMap`, etc.).
+anystock | `<div anystock></div>` | Supports specific attributes and generates a Stock-Chart.
+anychart-stage | `<div anychart-stage></div>` | Generates anychart [stage](http://docs.anychart.com/7.12.0/Dashboards/Stage-Based_Layout) to provide any kind of custom drawing (including dashboards)
 
 
 #### `anychart`-directive attributes
@@ -119,12 +119,12 @@ We use this directive to deal with charts included in anychart-module.
  
 Attribute | View Sample | Controller Sample | Description
 --- | --- | --- | --- 
-`ac-type` | `<div anychart ac-type="line"></div>` | - | Literally means what kind of simple chart will be created. In current sample, `anychart.line()`-constructor will be called.
-`ac-data` | `<div anychart ac-data="myData"></div>` | `$scope.myData = [ ... ];`| This means that data must be put into a `$scope$` of your controller in a field named `myData`. This value becomes a data source for chart. Please not, that for `anychart` directive we set the data with `chart.data()`-method. If chart doesn't have this method, then just use `ac-instance` directive instead (described below).   
-`ac-title` | `<div anychart ac-title="My Custom Title"></div>` | - | Sets a string value to a chart title.
-`ac-legend` | `<div anychart ac-legend="true"></div>` | - | Takes a string representation of boolean flag. Literally means whether to enable or disable the legend. 
-`ac-instance` | `<div anychart ac-instance="myChart"></div>` | `$scope.myChart = chart;` | It means that we create a chart instance in our controller manually and want to use it instead of auto-created. In this case we can configure a chart using [Anychart API](https://api.anychart.com/) and access the settings not available via these `ac`-attributes. To make it work, just create an instance manually, configure it and put into a `$scope` in specified field.
-`ac-chart-draw` | `<div anychart ac-chart-draw="afterDrawHandler"></div>` | `$scope.afterDrawHandler = function(chart) { ... };` | Function called after the chart if drawn. Takes as argument that chart itself.
+ac-type | `<div anychart ac-type="line"></div>` | - | Literally means what kind of simple chart will be created. In current sample, `anychart.line()`-constructor will be called.
+ac-data | `<div anychart ac-data="myData"></div>` | `$scope.myData = [ ... ];`| This means that data must be put into a `$scope$` of your controller in a field named `myData`. This value becomes a data source for chart. Please not, that for `anychart` directive we set the data with `chart.data()`-method. If chart doesn't have this method, then just use `ac-instance` directive instead (described below).   
+ac-title | `<div anychart ac-title="My Custom Title"></div>` | - | Sets a string value to a chart title.
+ac-legend | `<div anychart ac-legend="true"></div>` | - | Takes a string representation of boolean flag. Literally means whether to enable or disable the legend. 
+ac-instance | `<div anychart ac-instance="myChart"></div>` | `$scope.myChart = chart;` | It means that we create a chart instance in our controller manually and want to use it instead of auto-created. In this case we can configure a chart using [Anychart API](https://api.anychart.com/) and access the settings not available via these `ac`-attributes. To make it work, just create an instance manually, configure it and put into a `$scope` in specified field.
+ac-chart-draw | `<div anychart ac-chart-draw="afterDrawHandler"></div>` | `$scope.afterDrawHandler = function(chart) { ... };` | Function called after the chart if drawn. Takes as argument that chart itself.
 
 **Please note:** Here's no need to set a container of chart and call `chart.draw()`. This integration makes if automatically.
 
@@ -157,7 +157,7 @@ and dashboarding purposes.
 
 Attribute | View Sample | Controller Sample | Description
 --- | --- | --- | --- 
-`ac-instance` | `<div anychart-stage ac-instance="myStage"></div>` | `$scope.myStage = stage;` | It means that we create a stage instance in our controller manually and want to use it instead of auto-created. In this case we can configure a stage using [Anychart API](https://api.anychart.com/) and access the settings not available via these `ac`-attributes. To make it work, just create an instance manually, configure it and put into a `$scope` in specified field.
+ac-instance | `<div anychart-stage ac-instance="myStage"></div>` | `$scope.myStage = stage;` | It means that we create a stage instance in our controller manually and want to use it instead of auto-created. In this case we can configure a stage using [Anychart API](https://api.anychart.com/) and access the settings not available via these `ac`-attributes. To make it work, just create an instance manually, configure it and put into a `$scope` in specified field.
 
 
 We already know about AnychartService, well we can use it to deal with 
@@ -199,12 +199,12 @@ angular
 ```
 What's going on here?
 1. We create instances of `anychart.pie` and `anychart.line`.
-2. We configure it (data, bounds, title).
-3. We put it in `AnychartService.charts`. Please, note that we wrap `pie`-chart
+1. We configure it (data, bounds, title).
+1. We put it in `AnychartService.charts`. Please, note that we wrap `pie`-chart
  with object with one more additional field `chartDraw`. Here `chartDraw` is
  just a function that will be called after `pie`-chart is drawn with a single argument
  that is `pie`-chart itself.
-4. Controller of `anychart-stage`-directive will process an `AnychartService.charts`-array
+1. Controller of `anychart-stage`-directive will process an `AnychartService.charts`-array
 itself. 
  
 
@@ -214,12 +214,12 @@ We use this directive to deal with charts included in anygantt-module
 
 Attribute | View Sample | Controller Sample | Description
 --- | --- | --- | --- 
-`ac-type` | `<div anygantt ac-type="ganttProject"></div>` | - | Literally means what kind of gantt chart will be created. In current sample, `anychart.ganttProject()`-constructor will be called.
-`ac-data` | `<div anygantt ac-data="myData"></div>` | `$scope.myData = tree;` | By analogue with corresponding directive of `anychart`-directive, we have to put created data tree into `$scope` in specified field.   
-`ac-title` | `<div anygantt ac-title="My Custom Title"></div>` | - | Sets a string value to a chart title.
-`ac-instance` | `<div anygantt ac-instance="myChart"></div>` | `$scope.myChart = chart;` | Works with predefined chart instance (see `anychart`-directive). 
-`ac-chart-draw` | `<div anygantt ac-chart-draw="afterDrawHandler"></div>` | `$scope.afterDrawHandler = function(chart) { ... };` | Works the same way as described in  `anychart`-directive.
-`ac-splitter-position` | `<div anygantt ac-splitter-position="300"></div>` | - | Sets gantt chart splitter position. Does the same as `chart.splitterPosition(300)`.
+ac-type | `<div anygantt ac-type="ganttProject"></div>` | - | Literally means what kind of gantt chart will be created. In current sample, `anychart.ganttProject()`-constructor will be called.
+ac-data | `<div anygantt ac-data="myData"></div>` | `$scope.myData = tree;` | By analogue with corresponding directive of `anychart`-directive, we have to put created data tree into `$scope` in specified field.   
+ac-title | `<div anygantt ac-title="My Custom Title"></div>` | - | Sets a string value to a chart title.
+ac-instance | `<div anygantt ac-instance="myChart"></div>` | `$scope.myChart = chart;` | Works with predefined chart instance (see `anychart`-directive). 
+ac-chart-draw | `<div anygantt ac-chart-draw="afterDrawHandler"></div>` | `$scope.afterDrawHandler = function(chart) { ... };` | Works the same way as described in  `anychart`-directive.
+ac-splitter-position | `<div anygantt ac-splitter-position="300"></div>` | - | Sets gantt chart splitter position. Does the same as `chart.splitterPosition(300)`.
 
 
 
@@ -230,13 +230,13 @@ We use this directive to deal with charts included in anymap-module
 
 Attribute | View Sample | Controller Sample | Description
 --- | --- | --- | --- 
-`ac-type` | `<div anymap ac-type="ganttProject"></div>` | - | See `anychart`-directive corresponding attribute.
-`ac-data` | `<div anymap ac-data="myData"></div>` | `$scope.myData = data;` | See `anychart`-directive corresponding attribute.   
-`ac-title` | `<div anymap ac-title="My Custom Title"></div>` | - | See `anychart`-directive corresponding attribute.
-`ac-legend` | `<div anymap ac-legend="true"></div>` | - | See `anychart`-directive corresponding attribute.
-`ac-instance` | `<div anymap ac-instance="myChart"></div>` | `$scope.myChart = chart;` | See `anychart`-directive corresponding attribute. 
-`ac-chart-draw` | `<div anymap ac-chart-draw="afterDrawHandler"></div>` | `$scope.afterDrawHandler = function(chart) { ... };` | See `anychart`-directive corresponding attribute.
-`ac-geo-data ` | `<div anymap ac-geo-data="anychart.maps.australia"></div>` | - | Required attribute. Differs from `ac-data`: `ac-geo-data` sets the data all chart, while `ac-data` is a data for default map series.
+ac-type | `<div anymap ac-type="ganttProject"></div>` | - | See `anychart`-directive corresponding attribute.
+ac-data | `<div anymap ac-data="myData"></div>` | `$scope.myData = data;` | See `anychart`-directive corresponding attribute.   
+ac-title | `<div anymap ac-title="My Custom Title"></div>` | - | See `anychart`-directive corresponding attribute.
+ac-legend | `<div anymap ac-legend="true"></div>` | - | See `anychart`-directive corresponding attribute.
+ac-instance | `<div anymap ac-instance="myChart"></div>` | `$scope.myChart = chart;` | See `anychart`-directive corresponding attribute. 
+ac-chart-draw | `<div anymap ac-chart-draw="afterDrawHandler"></div>` | `$scope.afterDrawHandler = function(chart) { ... };` | See `anychart`-directive corresponding attribute.
+ac-geo-data  | `<div anymap ac-geo-data="anychart.maps.australia"></div>` | - | Required attribute. Differs from `ac-data`: `ac-geo-data` sets the data all chart, while `ac-data` is a data for default map series.
 
 
 #### `anystock`-directive attributes
