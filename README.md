@@ -1,227 +1,111 @@
-# AngularJS-plugin. Базовое описание для документеров/переводчиков.
+[<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](http://www.anychart.com)
+
+AngularJS v1.0 directives for AnyChart
+=========
+
+The set of directives to provide an integration of [Anychart Framework](http://anychart.com)
+and [AngularJS Framework](https://angularjs.org/). These directives simplify usage and
+configuration of basic charts types, but also allows you to build complex dashboards. 
 
 
-##Оглавление
-Сюда добавить оглавление по аналогии с [документацией](http://docs.anychart.com/)
+## Table of Contents
+ADD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-##Overview
-Что это за плагин и зачем он нужен. Думаю, здесь нужно отметить,что
-плагин в первую очередь является примером интеграции эничиарт-компонента
-в ангуляр-фрэймворк. 
-
-_Переводчикам подумать:_ нужно ли оставить ссылки на документацию
-ангуляра (я их тут привожу для понимания)? С одной стороны,
-они не нужны тем, кто и так шарит в ангуляре, с другой стороны,
-значительно облегчают понимание того, о чем вообще идет речь.
-
-_Еще:_ пожалуйста, подумайте, нужно ли добавить ссылки на примеры 
-(папка demos)?
-
-Также можно смотреть в [README зингчартов](https://github.com/zingchart/ZingChart-AngularJS)
-
-#### Что оно вообще умеет?
-1. Работа в angular-like стиле с anychart-компонентом (примеры будут ниже).
-1. Некоторое облегчение создания типичных графиков, потому что в простейшем
-случае создание чарта подразумеват:
-    1. создание инстанса чарта
-    1. задание ему данных
-    1. задание базовых дополнительных настроек (title, legend)
-    1. задание конейнера
-    1. вызов метода draw()
-1. В это время, для плагина в простейшем случае нужно просто иметь
- div-элемент со специфичными тегами и задать данные в собственном 
- контроллере (примеры будут ниже)
-1. С использованием [директив](https://docs.angularjs.org/guide/directive)
-мы покрываем работоспособность четырех наших компонентов + работу стэйджа
-для кастомного рисования и дашбордов. Примеры и описание директив - ниже.
 
 ## Quick start 
-1. подключаем либы, включая наш плагин
+First off all, please look at the code snippet written below:
 ```html
+<!DOCTYPE html>
+
+<!-- Add a directive "ng-app" to activate MyApp module. -->
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Anychart AngularJS plugin demo.</title>
+    
+    <!-- Add libraries to work with. -->
     <script src="angular.min.js"></script>
     <script src="anychart-bundle.min.js"></script>
     <script src="anychart-angularjs.js"></script>
-```
-2. Создаем собственный модуль и инджектим в него наш модуль-плагин,чтобы его
-можно было использовать. Подробности об инджекте читать вот
-[тут](https://docs.angularjs.org/guide/concepts) в разделе 
-_View-independent business logic: Services_. Эта ссылка для переводчиков
-к прочтению,чтобы понимать, какими терминами оперировать. Вставлять
-в документацию ее не надо.
-```javascript
-angular.module('MyApp', ['anychart-angularjs'])
-```
-3. Создаем собственный контроллер, который будет работать в приложении.
-Про контроллеры читать вот [тут](https://docs.angularjs.org/guide/controller)
-для терминологии.
-```html
-<head>
-   <!-- подключаем либы -->
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 
     <script>
         (function() {
             'use strict';
+            
+            //Declare your own module and controller
+            //and inject anychart-angularjs module to
+            //start working.
             angular
                     .module('MyApp', ['anychart-angularjs'])
                     .controller('MyCtrl', ['$scope', function($scope) {
-                        //make some noise.
+                    
+                        //In this basic case you just need to
+                        //provide a data to visualize.
+                        $scope.myData = [
+                            ["Chocolate", 5],
+                            ["Rhubarb compote", 2],
+                            ["Crêpe Suzette", 2],
+                            ["American blueberry", 2],
+                            ["Buttermilk", 1]
+                        ];
                     }]);
         })();
     </script>
 </head>
-```
-4. С помощью ангуляровских директив объявляем приложение и контроллер
-(подробности читать [тут](https://docs.angularjs.org/tutorial/step_00) 
-в ознакомительных целях и для выбора формулировок)
-```html
-    <html lang="en" ng-app="MyApp">
-    ...
-    <body ng-controller="MyCtrl">
-```
-5. Добавляем директиву для начала работы (помним, где читать про
-[директивы](https://docs.angularjs.org/guide/directive)?) 
-Про доступные директивы будет сказано ниже. Есть 2 способа подключить 
-директивы:
 
-Первый способ:
-```html
-<!-- Available way -->
-<anychart></anychart>
+<!-- Add your controller -->
+<body ng-controller="MyCtrl">
+
+    <!-- Finally, add Anychart directives. It’s as easy as pie (chart)! --> 
+    <div
+            anychart
+            ac-type="pie"
+            ac-data="myData"
+            ac-title="Simple Pie Demo"
+            ac-legend="true"
+            style="width: 100%; height: 100%">
+    
+    </div>
+</body>
+</html>
 ```
 
-Второй способ:
-```html
-<!-- Preferred way -->
-<div anychart></div>
-```
-Второй способ предпочтительнее, потому что для HTML это простая полноценная
-дивка и не будет лишних проблем с заданием CSS для корректного оформления и
-отображения. Надо понимать, что в данном случае помеченная директивой 
-дивка становится [контейнером](https://api.anychart.com/7.12.0/anychart.core.Chart#container)
- для чарта.
+## Available directives
 
-6. Добавляем обычное стилевое оформление для дива и специфичные 
-anychart-атрибуты для работы (про них будет рассказано ниже)
-```html
-<div anychart ac-type="pie" ac-data="myData" style="..."></div>
-```
+Directive | Code sample | Description
+--- | --- | ---
+anychart | `<div anychart></div>` | Supports attributes specific to this directive and generates a chart belonging to aychart module (not gantt, map or stock chart types)
+anygantt | `<div anygantt></div>` | Supports specific attributes and generates a chart belonging to anygantt module (`ganttResource` and `ganttProject`)
+anymap | `<div anymap></div>` | Supports specific attributes and generates a chart with map-specific series (`choropleth`, `bubbleMap`, etc.).
+anystock | `<div anystock></div>` | Supports specific attributes and generates a Stock-Chart.
+anychart-stage | `<div anychart-stage></div>` | Generates anychart [stage](http://docs.anychart.com/7.12.0/Dashboards/Stage-Based_Layout) to provide any kind of custom drawing (including dashboards)
 
-7. Делаем что угодно в функции-обработчике нашего контроллера `MyCtrl`. Для 
-этого quick start, просто задаем данные для нашего чарта. Обращаем внимание,
-что в пункте выше мы указали `ac-data="myData"`, значит, что даныне для
-чарта будут исаться в поле myData объекта `$scope` и значит, их надо туда
-положить.
-```javascript
-angular
-        .module('MyApp', ['anychart-angularjs'])
-        .controller('MyCtrl', ['$scope', function($scope) {
-            $scope.myData = [
-                ["Chocolate", 5],
-                ["Rhubarb compote", 2],
-                ["Crêpe Suzette", 2],
-                ["American blueberry", 2],
-                ["Buttermilk", 1]
-            ];
-        }]);
-```
 
-**Рабочий пример:** Simple_Pie.html
+#### `anychart`-directive attributes
+Attribute | View Sample | Controller Sample | Description
+--- | --- | --- | --- 
+`ac-type` | `<div anychart ac-type="line"></div>` | - | Literally means what kind of simple chart will be created. In current sample, `anychart.line()`-constructor will be called.
+`ac-data` | `<div anychart ac-data="myData"></div>` | `$scope.myData = [ ... ];`| This means that data must be put into a `$scope$` of your controller in a field named `myData`. This value becomes a data source for chart. Please not, that for `anychart` directive we set the data with `chart.data()`-method. If chart doesn't have this method, then just use `ac-instance` directive instead (described below).   
+`ac-title` | `<div anychart ac-title="My Custom Title"></div>` | - | Sets a string value to a chart title.
+`ac-legend` | `<div anychart ac-legend="true"></div>` | - | Takes a string representation of boolean flag. Literally means whether to enable or disable the legend. 
+`ac-instance` | `<div anychart ac-instance="myChart"></div>` | `$scope.myChart = chart;` | It means that we create a chart instance in our controller manually and want to use it instead of auto-created. In this case we can configure a chart using [Anychart API](https://api.anychart.com/) and access the settings not available via these `ac`-attributes. To make it work, just create an instance manually, configure it and put into a `$scope` in specified field.
+`ac-chart-draw` | `<div anychart ac-chart-draw="afterDrawHandler"></div>` | `$scope.afterDrawHandler = function(chart) { ... };` | Function called after the chart if drawn. Takes as argument that chart itself.
 
-## Директивы
-Всего их доступно 5:
-#### 1. anychart
-Используется для инстанциирования всех диаграмм, доступных
-в модуле anychart (т.е. не стоки, не ганты и не мапы)
-```html
-<div anychart></div>
-```
-работает со следующими кастомными директивами (атрибутами)
-1. ac-type
-```html
-<div anychart ac-type="line"></div>
-```
-буквально означает, какого типа чарт будет создан. В данном случае будет
-вызван конструктор `anychart.line()`.
-2. ac-data
-```html
-<div anychart ac-data="myData"></div>
-```
+**Please note:** Here's no need to set a container of chart and call `chart.draw()`. This integration makes if automatically.
 
-Означает, что ссылку на данные нужно положить в `$scope` в поле с
-указанным именем, это и будет являться источником данных для чарта. Там 
-чуть выше есть пример кода, где мы кладем данные в `$scope.myData`.
- 
-Еще здесь надо понимать вот какой момент: данные в этом случае
-устанавливаются через метод `chart.data()`. Если у чарта этот
-метод отсутствует, то через `ac-data` установить данные не получится,
-придется использовать `ac-instance`, об этом ниже. 
-
-3. ac-title
-```html
-<div anychart ac-title="My Custom Title"></div>
-```
-Просто устанавливает тайтл чарту.
-
-3. ac-legend
-```html
-<div anychart ac-legend="true"></div>
-```
-Принимает строковое значение булевого флага, буквально означает, включить
- легенду или отключить.
-
-4. ac-instance
-```html
-<div anychart ac-instance="myChart"></div>
-```
-Означает, что в своем контроллере можно создать произвольный инстанс чарта
-и настроить его через Anychart API, как мы это делаем вне ангуляра. 
- 
-В этом случае мы получаем полную настраиваемость чарта, в том числе то, 
-чего не получится сделать директивами, описанными выше. Для
- того, чтобы этот путь заработал, нужно созданный инстанс положить в
- указанное поле в `$scope`: 
-```javascript
-angular
-        .module('MyApp', ['anychart-angularjs'])
-        .controller('MyCtrl', ['$scope', function($scope) {
-            var chart = anychart.line();
-            
-            //custom chart setup here.
-            
-            $scope.myChart = chart;
-        }]);
-```   
-Здесь нужно отметить, что не нужно в этом месте вызывать установку контейнера
-и рисование, плагин сделает это сам. Кроме всего прочего, подобный 
- подход работает с остальными директивами:
- ```html
- <div anychart ac-data="myData" ac-instance="myChart"></div>
- ```
-```javascript
-angular
-        .module('MyApp', ['anychart-angularjs'])
-        .controller('MyCtrl', ['$scope', function($scope) {
-            var chart = anychart.line();
-            
-            //custom chart setup here.
-            
-            $scope.myChart = chart;
-            
-            $scope.myData = [
-                ["Chocolate", 5],
-                ["Rhubarb compote", 2],
-                ["Crêpe Suzette", 2],
-                ["American blueberry", 2],
-                ["Buttermilk", 1]
-            ];
-        }]);
-```  
-5. ac-chart-draw
+Sample:
 ```html
 <div anychart ac-data="myData" ac-type="pie" ac-chart-draw="afterDrawHandler"></div>
 ```
-Устанавливает обработчик, который будет вызван после отрисовки чарта.
-Должен быть задан как функция, принимающая параметром отрисовываемый чарт.
 ```javascript
 angular
         .module('MyApp', ['anychart-angularjs'])
@@ -238,9 +122,10 @@ angular
                 chart.title('After draw title');
             }
         }]);
-```   
-**Пример:** Line_Chart_After_Draw.html
+``` 
 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #### 2. anychart-stage
 Используется для создания Anychart Stage для применения 
