@@ -23,7 +23,7 @@
                     .module('MyApp', ['anychart-angularjs'])
                     .controller('MyCtrl', ['$scope', '$http', 'AnychartService', function($scope, $http, AnychartService) {
                         var service = AnychartService;
-                        $http.get('../res/sample1.json').then(function(response) {
+                        $http.get('res/sample1.json').then(function(response) {
                             if (service.chart) //If the chart has been successfully instantiated.
                                 service.chart.data(response.data);
                         });
