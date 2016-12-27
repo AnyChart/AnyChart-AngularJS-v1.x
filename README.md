@@ -85,9 +85,9 @@ AnychartService is an [Angular Service](https://docs.angularjs.org/guide/service
  module, just use the standard Angular [DI](https://docs.angularjs.org/guide/di) mechanism.
 
 By default, AnychartService, as a shareable object, contains two fields:
-1. `AnychartService.charts` - is an array that contains chart instances for
+* `AnychartService.charts` - is an array that contains chart instances for
 dashboarding purposes.
-2. `AnychartService.chart` - currently used chart. Auto- or manually- created.
+* `AnychartService.chart` - currently used chart. Auto- or manually- created.
  It is pretty useful for any deferred actions like async data loading.
  
 ```javascript
@@ -198,13 +198,13 @@ angular
        }]);
 ```
 What's going on here?
-1. We create instances of `anychart.pie` and `anychart.line`.
-1. We configure it (data, bounds, title).
-1. We put it in `AnychartService.charts`. Please, note that we wrap `pie`-chart
+* We create instances of `anychart.pie` and `anychart.line`.
+* We configure it (data, bounds, title).
+* We put it in `AnychartService.charts`. Please, note that we wrap `pie`-chart
  with object with one more additional field `chartDraw`. Here `chartDraw` is
  just a function that will be called after `pie`-chart is drawn with a single argument
  that is `pie`-chart itself.
-1. Controller of `anychart-stage`-directive will process an `AnychartService.charts`-array
+* Controller of `anychart-stage`-directive will process an `AnychartService.charts`-array
 itself. 
  
 
