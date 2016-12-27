@@ -310,6 +310,31 @@ ac-type должен принимать значения, соответству
 **Пример:** Simple_Stock_Area.html
 
 
+## Contacts
+
+* Web: [www.anychart.com](www.anychart.com)
+* Email: [contact@anychart.com](mailto:contact@anychart.com)
+* Twitter: [anychart](https://twitter.com/anychart)
+* Facebook: [AnyCharts](https://www.facebook.com/AnyCharts)
+* LinkedIn: [anychart](https://www.linkedin.com/company/anychart)
+
+## Links
+
+* [AnyChart Website](http://www.anychart.com)
+* [Download AnyChart](http://www.anychart.com/download/)
+* [AnyChart Licensing](http://www.anychart.com/buy/)
+* [AnyChart Support](http://www.anychart.com/support/)
+* [Report Issues](http://github.com/AnyChart/anychart/issues)
+* [AnyChart Playground](http://playground.anychart.com)
+* [AnyChart Documentation](http://docs.anychart.com)
+* [AnyChart API Reference](http://api.anychart.com)
+* [AnyChart Sample Solutions](http://www.anychart.com/solutions/)
+* [AnyChart Integrations](http://www.anychart.com/integrations/)
+
+## License
+
+[© AnyChart.com - JavaScript charts](http://www.anychart.com). All rights reserved.
+
 
 
 
