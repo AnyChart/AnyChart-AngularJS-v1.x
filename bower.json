@@ -1,0 +1,53 @@
+{
+  "name": "anychart-angularjs",
+  "description": "Integration of Anychart Framework and AngularJS Framework",
+  "main": "dist/anychart-angularjs.min.js",
+  "authors": [
+    "Roman Lubushkin <roman.lubushkin@anychart.com>",
+    "Alexander Kudryavtsev <alexander.kudryavtsev@anychart.com>",
+    "Anton Kagakin <anton.kagakin@anychart.com>",
+    "Anton Saukh <anton.saukh@anychart.com>",
+    "Sergey Medvedev <sergey.medvedev@anychart.com>",
+    "Vitaly Radionov <vitaly.radionov@anychart.com>",
+    "Eugene Averchenko <eugene.averchenko@anychart.com>"
+  ],
+  "license": "SEE LICENSE IN <http://www.anychart.com/buy>",
+  "keywords": [
+    "anychart",
+    "anystock",
+    "anygantt",
+    "anymap",
+    "charts",
+    "javascript",
+    "charts",
+    "ajax",
+    "charts",
+    "plots",
+    "line",
+    "charts",
+    "bar",
+    "charts",
+    "pie",
+    "charts",
+    "javascript",
+    "plots",
+    "ajax",
+    "plots",
+    "javascript",
+    "SVG",
+    "HTML5",
+    "framework",
+    "VML",
+    "angular",
+    "angularjs"
+  ],
+  "homepage": "https://github.com/AnyChart/AngularJS-plugin",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
