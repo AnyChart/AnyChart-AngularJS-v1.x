@@ -9,6 +9,7 @@ configuration of basic charts types, but also allows you to build complex dashbo
 
 
 ## Table of Contents
+* [Download and install](#download-and-install)
 * [Quick start](#quick-start)
 * [AnychartService](#anychartservice)
 * [Available directives](#available-directives)
@@ -17,6 +18,32 @@ configuration of basic charts types, but also allows you to build complex dashbo
 * [Links](#links)
 * [License](#license)
 
+
+## Download and install
+
+There are several ways to download/install AnyChart.
+
+#### Direct download
+
+All binaries are located in [dist](https://github.com/AnyChart/AnyChart/tree/master/dist) folder.
+
+#### CDN
+
+If you don't want to download and host AnyChart yourself, you can include it from the AnyChart CDN (Content Delivery Network): [https://cdn.anychart.com/](https://cdn.anychart.com/) 
+
+```html
+<head>
+<script src="https://cdn.anychart.com/js/latest/anychart.min.js"></script>
+</head>
+```
+
+#### Package managers
+
+You can install AnyChart using **npm**, **bower** or **yarn**:
+
+* `npm install anychart`
+* `bower install anychart`
+* `yarn install anychart`
 
 ## Quick start 
 First off all, please look at the code snippet written below:
