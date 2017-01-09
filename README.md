@@ -9,7 +9,13 @@ configuration of basic charts types, but also allows you to build complex dashbo
 
 
 ## Table of Contents
-ADD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+* [Quick start](#quick-start)
+* [AnychartService](#anychartservice)
+* [Available directives](#available-directives)
+* [Demos overview](#demos-overview)
+* [Contacts](#contacts)
+* [Links](#links)
+* [License](#license)
 
 
 ## Quick start 
@@ -95,7 +101,7 @@ angular
        .module('MyApp', ['anychart-angularjs'])
        .controller('MyCtrl', ['$scope', '$http', 'AnychartService', function($scope, $http, AnychartService) {
            var service = AnychartService;
-           $http.get('../res/sample1.json').then(function(response) {
+           $http.get('sample1.json').then(function(response) {
                if (service.chart) //If the chart has been successfully instantiated.
                    service.chart.data(response.data);
            });
@@ -120,7 +126,7 @@ We use this directive to deal with charts included in anychart-module.
 Attribute | View Sample | Controller Sample | Description
 --- | --- | --- | --- 
 ac-type | `<div anychart ac-type="line"></div>` | - | Literally means what kind of simple chart will be created. In current sample, `anychart.line()`-constructor will be called.
-ac-data | `<div anychart ac-data="myData"></div>` | `$scope.myData = [ ... ];`| This means that data must be put into a `$scope$` of your controller in a field named `myData`. This value becomes a data source for chart. Please not, that for `anychart` directive we set the data with `chart.data()`-method. If chart doesn't have this method, then just use `ac-instance` directive instead (described below).   
+ac-data | `<div anychart ac-data="myData"></div>` | `$scope.myData = [ ... ];`| This means that data must be put into a `$scope` of your controller in a field named `myData`. This value becomes a data source for chart. Please note, that for `anychart` directive we set the data with `chart.data()`-method. If chart doesn't have this method, then just use `ac-instance` directive instead (described below).   
 ac-title | `<div anychart ac-title="My Custom Title"></div>` | - | Sets a string value to a chart title.
 ac-legend | `<div anychart ac-legend="true"></div>` | - | Takes a string representation of boolean flag. Literally means whether to enable or disable the legend. 
 ac-instance | `<div anychart ac-instance="myChart"></div>` | `$scope.myChart = chart;` | It means that we create a chart instance in our controller manually and want to use it instead of auto-created. In this case we can configure a chart using [Anychart API](https://api.anychart.com/) and access the settings not available via these `ac`-attributes. To make it work, just create an instance manually, configure it and put into a `$scope` in specified field.
@@ -243,6 +249,29 @@ ac-geo-data  | `<div anymap ac-geo-data="anychart.maps.australia"></div>` | - | 
 Works only with `ac-instance` and `ac-chart-draw` attributes because of very specific
 Stock Chart setup.
 
+
+## Demos overview
+Demos folder content overview.
+* **Anychart_Load_Data_From_Json.html**: Demo of async data loading. Also
+shows how AnychartService can be used.
+* **Full_Custom_Stage.html**: Demonstrates how to create and use full custom stage.
+* **Gantt_Project_After_Draw.html**: Shows how to simply create Gantt Project
+Chart and setup after-draw handler.
+* **Gantt_Resource_Instance_Usage.html**: Shows how to use manually created 
+instance og Gantt Resource chart and how to add after draw handler.
+* **Line_Chart_After_Draw.html**: Demonstrates how to create and use instance
+of chart and add after draw handler.
+* **Line_Chart_Data_Streaming.html**: Simple data streaming demo.
+* **Simple_Charts_On_Stage.html**: Demonstrates how to create and add simple 
+charts on anychart stage and how to add after draw handler.
+* **Simple_Gantt_Project.html**: Simple Gantt Project Chart demo.
+* **Simple_Map.html**: Simple Anymap demo.
+* **Simple_Pie.html**: Simple pie-chart demo.
+* **Simple_Stock_Area.html**: Simple Anystock demo.
+* **Software_Sales_Dashboard.html**: Demonstrates how to use `anychart-stage`
+ directive to build interactive dashboard.
+* **World_Map_Instance_After_Draw.html**: World map demo. Shows how to
+ use map chart instance and how to add after draw handler.
 
 
 ## Contacts

@@ -24,8 +24,6 @@
             angular
                     .module('MyApp', ['anychart-angularjs'])
                     .controller('MyCtrl', ['$scope', function($scope) {
-                        // The data that have been used for this sample can be taken from the CDN
-                        // http://cdn.anychart.com/gantt-data/hierarchical-data.js
                         $scope.myData = anychart.data.tree(getData(), anychart.enums.TreeFillingMethod.AS_TREE);
 
                         $scope.fitAll = function(chart) {
