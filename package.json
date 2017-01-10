@@ -36,7 +36,7 @@
     "angularjs"
   ],
   "author": "AnyChart <contact@anychart.com> (http://anychart.com)",
-  "license": "SEE LICENSE IN <http://www.anychart.com/buy>",
+  "license": "Apache-2.0",
   "homepage": "https://anychart.com",
   "contributors": [
     "Roman Lubushkin <roman.lubushkin@anychart.com>",
