@@ -29,6 +29,9 @@ You can install AngularJS-plugin using **npm**, **bower** or **yarn**:
 * `bower install anychart-angularjs`
 * `yarn install anychart-angularjs`
 
+#### Direct download
+You can download AngularJS-plugin directly from the [dist](https://github.com/AnyChart/AnyChart-AngularJS/tree/master/dist) folder.
+
 ## Quick start 
 First off all, please look at the code snippet written below:
 ```html
