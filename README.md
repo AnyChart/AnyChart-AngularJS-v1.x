@@ -1,6 +1,6 @@
 [<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](http://www.anychart.com)
 
-AngularJS v1.0 directives for AnyChart
+AngularJS v1.x directives for AnyChart
 =========
 
 The set of directives to provide an integration of [Anychart Framework](http://anychart.com)
@@ -21,29 +21,13 @@ configuration of basic charts types, but also allows you to build complex dashbo
 
 ## Download and install
 
-There are several ways to download/install AnyChart.
-
-#### Direct download
-
-All binaries are located in [dist](https://github.com/AnyChart/AnyChart-AngularJS/tree/master/dist) folder.
-
-#### CDN
-
-If you don't want to download and host AnyChart yourself, you can include it from the AnyChart CDN (Content Delivery Network): [https://cdn.anychart.com/](https://cdn.anychart.com/) 
-
-```html
-<head>
-<script src="https://cdn.anychart.com/js/latest/anychart.min.js"></script>
-</head>
-```
-
 #### Package managers
 
-You can install AnyChart using **npm**, **bower** or **yarn**:
+You can install AngularJS-plugin using **npm**, **bower** or **yarn**:
 
-* `npm install anychart`
-* `bower install anychart`
-* `yarn install anychart`
+* `npm install anychart-angularjs`
+* `bower install anychart-angularjs`
+* `yarn install anychart-angularjs`
 
 ## Quick start 
 First off all, please look at the code snippet written below:
@@ -280,7 +264,7 @@ Stock Chart setup.
 ## Demos overview
 Demos folder content overview.
 * **[Anychart_Load_Data_From_Json.html](https://github.com/AnyChart/AnyChart-AngularJS/blob/master/demos/Anychart_Load_Data_From_Json.html)**: Demo of async data loading. Also
-shows how AnychartService can be used.
+shows how AnychartService can be used. **Please, note:** This demo can be run on a server only because of cross origin requests security issues. 
 * **[Full_Custom_Stage.html](https://github.com/AnyChart/AnyChart-AngularJS/blob/master/demos/Full_Custom_Stage.html)**: Demonstrates how to create and use full custom stage.
 * **[Gantt_Project_After_Draw.html](https://github.com/AnyChart/AnyChart-AngularJS/blob/master/demos/Gantt_Project_After_Draw.html)**: Shows how to simply create Gantt Project
 Chart and setup after-draw handler.

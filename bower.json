@@ -1,6 +1,6 @@
 {
   "name": "anychart-angularjs",
-  "description": "Integration of Anychart Framework and AngularJS Framework",
+  "description": "AngularJS v1.x directives for AnyChart",
   "main": "dist/anychart-angularjs.min.js",
   "authors": [
     "Roman Lubushkin <roman.lubushkin@anychart.com>",
