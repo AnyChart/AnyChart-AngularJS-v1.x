@@ -1,14 +1,14 @@
 [<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](http://www.anychart.com)
 
 AngularJS v1.x directives for AnyChart
+
 =========
 
-The set of directives to provide an integration of [Anychart Framework](http://anychart.com)
-and [AngularJS Framework](https://angularjs.org/). These directives simplify usage and
-configuration of basic charts types, but also allows you to build complex dashboards. 
-
+AngularJS v1.x directives for AnyChart provide and easy way to use [AnyChart JavaScript Charts](http://anychart.com)
+with [AngularJS Framework](https://angularjs.org/). 
 
 ## Table of Contents
+
 * [Download and install](#download-and-install)
 * [Quick start](#quick-start)
 * [AnychartService](#anychartservice)
@@ -17,7 +17,6 @@ configuration of basic charts types, but also allows you to build complex dashbo
 * [Contacts](#contacts)
 * [Links](#links)
 * [License](#license)
-
 
 ## Download and install
 
@@ -30,18 +29,21 @@ You can install AngularJS-plugin using **npm**, **bower** or **yarn**:
 * `yarn install anychart-angularjs`
 
 #### Direct download
+
 You can download AngularJS-plugin directly from the [dist](https://github.com/AnyChart/AnyChart-AngularJS/tree/master/dist) folder.
 
 ## Quick start 
-First off all, please look at the code snippet written below:
+
+Here is a basic sample that shows how to add a chart:
+
 ```html
 <!DOCTYPE html>
 
-<!-- Add a directive "ng-app" to activate MyApp module. -->
+<!-- Add the "ng-app" directive to activate MyApp module. -->
 <html lang="en" ng-app="MyApp">
 <head>
     <meta charset="UTF-8">
-    <title>Anychart AngularJS plugin demo.</title>
+    <title>Anychart AngularJS plugin demo</title>
     
     <!-- Add libraries to work with. -->
     <script src="angular.min.js"></script>
@@ -61,15 +63,15 @@ First off all, please look at the code snippet written below:
         (function() {
             'use strict';
             
-            //Declare your own module and controller
-            //and inject anychart-angularjs module to
-            //start working.
+            // Declare your own module and controller
+            // and inject anychart-angularjs module to
+            // start working.
             angular
                     .module('MyApp', ['anychart-angularjs'])
                     .controller('MyCtrl', ['$scope', function($scope) {
                     
-                        //In this basic case you just need to
-                        //provide a data to visualize.
+                        // In this basic case you just need to
+                        // provide the data set to visualize.
                         $scope.myData = [
                             ["Chocolate", 5],
                             ["Rhubarb compote", 2],
@@ -85,7 +87,7 @@ First off all, please look at the code snippet written below:
 <!-- Add your controller -->
 <body ng-controller="MyCtrl">
 
-    <!-- Finally, add Anychart directives. It’s as easy as pie (chart)! --> 
+    <!-- Add AnyChart directives. It’s as easy as pie (chart)! --> 
     <div
             anychart
             ac-type="pie"
@@ -100,15 +102,14 @@ First off all, please look at the code snippet written below:
 ```
 
 ## AnychartService
-AnychartService is an [Angular Service](https://docs.angularjs.org/guide/services). We use it to
- share data between scopes and to provide more opportunities for developers. To use it in your 
- module, just use the standard Angular [DI](https://docs.angularjs.org/guide/di) mechanism.
+
+AnychartService is an [Angular Service](https://docs.angularjs.org/guide/services). It is used to share data between scopes and to provide more opportunities for developers. To use it in your  module use the standard Angular [DI](https://docs.angularjs.org/guide/di) mechanism.
 
 By default, AnychartService, as a shareable object, contains two fields:
-* `AnychartService.charts` - is an array that contains chart instances for
+* `AnychartService.charts` -  an array that contains chart instances for
 dashboarding purposes.
-* `AnychartService.chart` - currently used chart. Auto- or manually- created.
- It is pretty useful for any deferred actions like async data loading.
+* `AnychartService.chart` - current chart. Auto- or manually- created.
+ It is useful for any deferred actions like async data loading.
  
 ```javascript
 angular
@@ -116,7 +117,7 @@ angular
        .controller('MyCtrl', ['$scope', '$http', 'AnychartService', function($scope, $http, AnychartService) {
            var service = AnychartService;
            $http.get('sample1.json').then(function(response) {
-               if (service.chart) //If the chart has been successfully instantiated.
+               if (service.chart) // If a chart has been successfully instantiated.
                    service.chart.data(response.data);
            });
        }]);
@@ -127,7 +128,7 @@ angular
 
 Directive | Code sample | Description
 --- | --- | ---
-anychart | `<div anychart></div>` | Supports attributes specific to this directive and generates a chart belonging to aychart module (not gantt, map or stock chart types)
+anychart | `<div anychart></div>` | Supports attributes specific to this directive and generates a chart belonging to anychart module (not gantt, map or stock chart types)
 anygantt | `<div anygantt></div>` | Supports specific attributes and generates a chart belonging to anygantt module (`ganttResource` and `ganttProject`)
 anymap | `<div anymap></div>` | Supports specific attributes and generates a chart with map-specific series (`choropleth`, `bubbleMap`, etc.).
 anystock | `<div anystock></div>` | Supports specific attributes and generates a Stock-Chart.
