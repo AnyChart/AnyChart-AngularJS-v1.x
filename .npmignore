@@ -2,17 +2,6 @@
 *.swp
 .idea
 *.pid
-contrib
-out
-src/deps.js
 *.swo
 *.pyc
-**/.*
 npm-debug.log
-build*
-gjslint.cfg
-modules.edn
-cat.config
-update-submodules
-externs.js
-tests

@@ -26,7 +26,7 @@ You can install AngularJS-plugin using **npm**, **bower** or **yarn**:
 
 * `npm install anychart-angularjs`
 * `bower install anychart-angularjs`
-* `yarn install anychart-angularjs`
+* `yarn add anychart-angularjs`
 
 #### Direct download
 

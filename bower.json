@@ -42,7 +42,6 @@
     "angularjs"
   ],
   "homepage": "https://github.com/AnyChart/AngularJS-plugin",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
