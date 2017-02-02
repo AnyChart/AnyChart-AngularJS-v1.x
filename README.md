@@ -1,8 +1,6 @@
 [<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](http://www.anychart.com)
 
-AngularJS v1.x directives for AnyChart
-
-=========
+# AngularJS v1.x directives for AnyChart
 
 AngularJS v1.x directives for AnyChart provide an easy way to use [AnyChart JavaScript Charts](http://anychart.com)
 with [AngularJS Framework](https://angularjs.org/). 
@@ -26,7 +24,7 @@ You can install AngularJS-plugin using **npm**, **bower** or **yarn**:
 
 * `npm install anychart-angularjs`
 * `bower install anychart-angularjs`
-* `yarn install anychart-angularjs`
+* `yarn add anychart-angularjs`
 
 #### Direct download
 
@@ -281,7 +279,7 @@ charts on the anychart stage and how to add the after-draw handler.
 
 ## Contacts
 
-* Web: [www.anychart.com](www.anychart.com)
+* Web: [www.anychart.com](http://www.anychart.com)
 * Email: [contact@anychart.com](mailto:contact@anychart.com)
 * Twitter: [anychart](https://twitter.com/anychart)
 * Facebook: [AnyCharts](https://www.facebook.com/AnyCharts)
