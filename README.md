@@ -1,7 +1,6 @@
 [<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](http://www.anychart.com)
 
-AngularJS v1.x directives for AnyChart
-=========
+# AngularJS v1.x directives for AnyChart
 
 AngularJS v1.x directives for AnyChart provide an easy way to use [AnyChart JavaScript Charts](http://anychart.com)
 with [AngularJS Framework](https://angularjs.org/). 

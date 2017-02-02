@@ -1,6 +1,6 @@
 {
   "name": "anychart-angularjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AngularJS v1.x directives for AnyChart",
   "main": "dist/anychart-angularjs.min.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/AnyChart/AnyChart-AngularJS.git"
   },
-    "bugs": {
+  "bugs": {
     "url": "https://github.com/AnyChart/AnyChart-AngularJS/issues"
   },
   "keywords": [
@@ -37,14 +37,5 @@
   ],
   "author": "AnyChart <contact@anychart.com> (http://anychart.com)",
   "license": "Apache-2.0",
-  "homepage": "https://anychart.com",
-  "contributors": [
-    "Roman Lubushkin <roman.lubushkin@anychart.com>",
-    "Alexander Kudryavtsev <alexander.kudryavtsev@anychart.com>",
-    "Anton Kagakin <anton.kagakin@anychart.com>",
-    "Anton Saukh <anton.saukh@anychart.com>",
-    "Sergey Medvedev <sergey.medvedev@anychart.com>",
-    "Vitaly Radionov <vitaly.radionov@anychart.com>",
-    "Eugene Averchenko <eugene.averchenko@anychart.com>"
-  ]
+  "homepage": "https://github.com/AnyChart/AnyChart-AngularJS.git"
 }

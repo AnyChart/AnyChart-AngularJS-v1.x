@@ -3,13 +3,7 @@
   "description": "AngularJS v1.x directives for AnyChart",
   "main": "dist/anychart-angularjs.min.js",
   "authors": [
-    "Roman Lubushkin <roman.lubushkin@anychart.com>",
-    "Alexander Kudryavtsev <alexander.kudryavtsev@anychart.com>",
-    "Anton Kagakin <anton.kagakin@anychart.com>",
-    "Anton Saukh <anton.saukh@anychart.com>",
-    "Sergey Medvedev <sergey.medvedev@anychart.com>",
-    "Vitaly Radionov <vitaly.radionov@anychart.com>",
-    "Eugene Averchenko <eugene.averchenko@anychart.com>"
+    "AnyChart"
   ],
   "license": "Apache-2.0",
   "keywords": [
@@ -41,7 +35,7 @@
     "angular",
     "angularjs"
   ],
-  "homepage": "https://github.com/AnyChart/AngularJS-plugin",
+  "homepage": "https://github.com/AnyChart/AnyChart-AngularJS.git",
   "ignore": [
     "**/.*",
     "node_modules",
