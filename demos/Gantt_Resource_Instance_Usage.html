@@ -85,6 +85,8 @@
                         $scope.decorate = function(chart) {
                             chart.zoomTo(Date.UTC(2014, 3, 8), Date.UTC(2014, 3, 13));
 
+                            chart.title().padding().top(15);
+
                             var dataGrid = chart.dataGrid();
 
                             // styling the data grid
@@ -115,7 +117,7 @@
         anygantt
         ac-data="myData"
         ac-title="External events"
-        ac-splitter-position="200"
+        ac-splitter-position="171"
         ac-instance="ch"
         ac-chart-draw="decorate"
         style="width: 100%; height: 100%">
