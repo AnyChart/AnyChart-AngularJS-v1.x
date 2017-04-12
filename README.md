@@ -300,7 +300,7 @@ charts on the anychart stage and how to add the after-draw handler.
 
 ## License
 
-[© AnyChart.com - JavaScript charts](http://www.anychart.com). All rights reserved.
+[© AnyChart.com - JavaScript charts](http://www.anychart.com). AnyChart AngularJS plugin is released under the [Apache 2.0 License](https://github.com/AnyChart/AnyChart-AngularJS-v1.x/blob/master/LICENSE).
 
 
 
