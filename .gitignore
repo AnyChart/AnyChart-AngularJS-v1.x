@@ -4,3 +4,6 @@
 *.pid
 *.swo
 *.pyc
+node_modules
+npm-debug.*
+*.js.map
