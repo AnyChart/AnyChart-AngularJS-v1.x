@@ -1,6 +1,6 @@
 {
   "name": "anychart-angularjs",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "AngularJS v1.x directives for AnyChart",
   "main": "dist/anychart-angularjs.min.js",
   "scripts": {
@@ -37,5 +37,9 @@
   ],
   "author": "AnyChart <contact@anychart.com> (http://anychart.com)",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/AnyChart/AnyChart-AngularJS.git"
+  "homepage": "https://github.com/AnyChart/AnyChart-AngularJS.git",
+  "dependencies": {
+    "anychart": "^7.13.0",
+    "angular": "^1.6.0"
+  }
 }
