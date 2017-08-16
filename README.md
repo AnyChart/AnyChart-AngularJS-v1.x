@@ -301,7 +301,7 @@ charts on the anychart stage and how to add the after-draw handler.
 ## License
 
 [© AnyChart.com - JavaScript charts](http://www.anychart.com). 
-[![Analytics](https://ga-beacon.appspot.com/UA-228820-4/Plugins/AngularJS?pixel&useReferer)](https://github.com/igrigorik/ga-beacon)
+[![Analytics](https://ga-beacon.appspot.com/UA-228820-4/Plugins/AngularJS-v1x?pixel&useReferer)](https://github.com/igrigorik/ga-beacon)
 
 
 
