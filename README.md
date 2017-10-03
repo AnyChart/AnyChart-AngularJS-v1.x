@@ -1,8 +1,8 @@
-[<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](http://www.anychart.com)
+[<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](https://www.anychart.com)
 
 # AngularJS v1.x directives for AnyChart
 
-AngularJS v1.x directives for AnyChart provide an easy way to use [AnyChart JavaScript Charts](http://anychart.com)
+AngularJS v1.x directives for AnyChart provide an easy way to use [AnyChart JavaScript Charts](https://www.anychart.com)
 with [AngularJS Framework](https://angularjs.org/). 
 
 ## Table of Contents
@@ -279,7 +279,7 @@ charts on the anychart stage and how to add the after-draw handler.
 
 ## Contacts
 
-* Web: [www.anychart.com](http://www.anychart.com)
+* Web: [www.anychart.com](https://www.anychart.com)
 * Email: [contact@anychart.com](mailto:contact@anychart.com)
 * Twitter: [anychart](https://twitter.com/anychart)
 * Facebook: [AnyCharts](https://www.facebook.com/AnyCharts)
@@ -287,20 +287,21 @@ charts on the anychart stage and how to add the after-draw handler.
 
 ## Links
 
-* [AnyChart Website](http://www.anychart.com)
-* [Download AnyChart](http://www.anychart.com/download/)
-* [AnyChart Licensing](http://www.anychart.com/buy/)
-* [AnyChart Support](http://www.anychart.com/support/)
+* [AnyChart Website](https://www.anychart.com)
+* [Download AnyChart](https://www.anychart.com/download/)
+* [AnyChart Licensing](https://www.anychart.com/buy/)
+* [AnyChart Support](https://www.anychart.com/support/)
 * [Report Issues](http://github.com/AnyChart/anychart/issues)
-* [AnyChart Playground](http://playground.anychart.com)
-* [AnyChart Documentation](http://docs.anychart.com)
-* [AnyChart API Reference](http://api.anychart.com)
-* [AnyChart Sample Solutions](http://www.anychart.com/solutions/)
-* [AnyChart Integrations](http://www.anychart.com/integrations/)
+* [AnyChart Playground](https://playground.anychart.com)
+* [AnyChart Documentation](https://docs.anychart.com)
+* [AnyChart API Reference](https://api.anychart.com)
+* [AnyChart Sample Solutions](https://www.anychart.com/solutions/)
+* [AnyChart Integrations](https://www.anychart.com/integrations/)
 
 ## License
 
-[© AnyChart.com - JavaScript charts](http://www.anychart.com). AnyChart AngularJS plugin is released under the [Apache 2.0 License](https://github.com/AnyChart/AnyChart-AngularJS-v1.x/blob/master/LICENSE).
+[© AnyChart.com - JavaScript charts](http://www.anychart.com). 
+[![Analytics](https://ga-beacon.appspot.com/UA-228820-4/Plugins/AngularJS-v1x?pixel&useReferer)](https://github.com/igrigorik/ga-beacon)
 
 
 
