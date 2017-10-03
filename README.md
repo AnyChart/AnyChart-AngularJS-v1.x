@@ -130,7 +130,7 @@ anychart | `<div anychart></div>` | Supports attributes specific to this directi
 anygantt | `<div anygantt></div>` | Supports attributes specific to this directive and generates a chart from anygantt module (`ganttResource` and `ganttProject`)
 anymap | `<div anymap></div>` |Supports attributes specific to this directive and generates a chart from anymap module (`choropleth`, `bubbleMap`, etc.).
 anystock | `<div anystock></div>` | Supports attributes specific to this directive and generates a chart from anystock module (`anychart.stock`).
-anychart-stage | `<div anychart-stage></div>` | Generates anychart [stage](http://docs.anychart.com/latest/Dashboards/Stage-Based_Layout) to deal with complex charts and any kind of custom drawing.
+anychart-stage | `<div anychart-stage></div>` | Generates anychart [stage](https://docs.anychart.com/Dashboards/Stage-Based_Layout) to deal with complex charts and any kind of custom drawing.
 
 
 #### `anychart` directive attributes
@@ -291,7 +291,7 @@ charts on the anychart stage and how to add the after-draw handler.
 * [Download AnyChart](https://www.anychart.com/download/)
 * [AnyChart Licensing](https://www.anychart.com/buy/)
 * [AnyChart Support](https://www.anychart.com/support/)
-* [Report Issues](http://github.com/AnyChart/anychart/issues)
+* [Report Issues](https://github.com/AnyChart/anychart/issues)
 * [AnyChart Playground](https://playground.anychart.com)
 * [AnyChart Documentation](https://docs.anychart.com)
 * [AnyChart API Reference](https://api.anychart.com)
@@ -300,7 +300,17 @@ charts on the anychart stage and how to add the after-draw handler.
 
 ## License
 
-[© AnyChart.com - JavaScript charts](http://www.anychart.com). 
+
+AngularJS v1.x directives for AnyChart include two parts:
+- code of the plugin that allows to use Javascript library (in this case, AnyChart) with AngularJS 1.x.
+You can use, edit, modify it, use it with other Javascript libraries without any restrictions.
+It is released under [Apache 2.0 License](LICENSE).
+- AnyChart JavaScript library. It is released under Commercial license.
+You can test this plugin with the trial version of AnyChart.
+Our trial version is not limited by time and doesn't contain any feature 
+limitations. Check details [here](https://www.anychart.com/buy/).
+
+If you have any questions regarding licensing - please contact us. <sales@anychart.com>
 [![Analytics](https://ga-beacon.appspot.com/UA-228820-4/Plugins/AngularJS-v1x?pixel&useReferer)](https://github.com/igrigorik/ga-beacon)
 
 
