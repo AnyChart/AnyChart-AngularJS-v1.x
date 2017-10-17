@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Anychart AngularJS plugin demo.</title>
-    <script src="lib/angular.min.js"></script>
-    <script src="lib/anychart-bundle.min.js"></script>
-    <script src="res/world.js"></script>
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="../node_modules/anychart/dist/js/anychart-base.min.js"></script>
+    <script src="../node_modules/anychart/dist/js/anychart-map.min.js"></script>
+    <script src="../node_modules/anychart/dist/js/anychart-ui.min.js"></script>
+    <script src="../node_modules/anychart/dist/js/anychart-exports.min.js"></script>
     <script src="../dist/anychart-angularjs.min.js"></script>
-    <link rel="stylesheet" href="res/anychart-ui.css">
+    <link rel="stylesheet" href="../node_modules/anychart/dist/css/anychart-ui.min.css">
+    <link rel="stylesheet" href="../node_modules/anychart/dist/fonts/css/anychart-font.min.css">
+    <script src="res/world.js"></script>
     <style>
         html, body {
             width: 100%;
@@ -82,31 +86,31 @@
                     .controller('MyCtrl', ['$scope', function($scope) {
                         var map = anychart.map();
 
-                        map.allowPointsSelect(false);
+                        map.interactivity().selectionMode('none');
 
                         var density_data = dataSet.mapAs(undefined, {'size': 'population'});
                         var series = map.bubble(density_data);
                         series.labels().enabled(false);
                         series.selectionMode("none");
-                        series.tooltip().textWrap('byLetter').useHtml(true);
-                        series.tooltip().textFormatter(function() {
-                            return '<span style="color: #d9d9d9">Density</span>: ' + parseFloat(this.getDataValue('density')).toLocaleString() + ' pop./km&#178 <br/>' +
-                                    '<span style="color: #d9d9d9">Population</span>: ' + parseInt(this.getDataValue('population')).toLocaleString() + '<br/>' +
-                                    '<span style="color: #d9d9d9">Area</span>: ' + parseInt(this.getDataValue('area')).toLocaleString() + ' km&#178';
+                        series.tooltip().wordWrap('break-word').useHtml(true);
+                        series.tooltip().format(function() {
+                            return '<span style="color: #d9d9d9">Density</span>: ' + parseFloat(this.getData('density')).toLocaleString() + ' pop./km&#178 <br/>' +
+                                    '<span style="color: #d9d9d9">Population</span>: ' + parseInt(this.getData('population')).toLocaleString() + '<br/>' +
+                                    '<span style="color: #d9d9d9">Area</span>: ' + parseInt(this.getData('area')).toLocaleString() + ' km&#178';
                         });
 
                         var series_choropleth = map.choropleth(density_data);
                         series_choropleth.selectionMode("none");
                         series_choropleth.fill('#eaeaea');
                         series_choropleth.stroke('#D2D2D2');
-                        series_choropleth.hoverStroke('#eaeaea');
-                        series_choropleth.hoverFill('#D2D2D2');
+                        series_choropleth.hovered().stroke('#eaeaea');
+                        series_choropleth.hovered().fill('#D2D2D2');
                         series_choropleth.labels(null);
-                        series_choropleth.tooltip().textWrap('byLetter').useHtml(true);
-                        series_choropleth.tooltip().textFormatter(function() {
-                            return '<span style="color: #d9d9d9">Density</span>: ' + parseFloat(this.getDataValue('density')).toLocaleString() + ' pop./km&#178 <br/>' +
-                                    '<span style="color: #d9d9d9">Population</span>: ' + parseInt(this.getDataValue('population')).toLocaleString() + '<br/>' +
-                                    '<span style="color: #d9d9d9">Area</span>: ' + parseInt(this.getDataValue('area')).toLocaleString() + ' km&#178';
+                        series_choropleth.tooltip().wordWrap('break-word').useHtml(true);
+                        series_choropleth.tooltip().format(function() {
+                            return '<span style="color: #d9d9d9">Density</span>: ' + parseFloat(this.getData('density')).toLocaleString() + ' pop./km&#178 <br/>' +
+                                    '<span style="color: #d9d9d9">Population</span>: ' + parseInt(this.getData('population')).toLocaleString() + '<br/>' +
+                                    '<span style="color: #d9d9d9">Area</span>: ' + parseInt(this.getData('area')).toLocaleString() + ' km&#178';
                         });
 
                         $scope.myMap = map;

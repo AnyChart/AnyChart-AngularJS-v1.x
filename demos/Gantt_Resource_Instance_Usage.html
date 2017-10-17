@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Anychart AngularJS plugin demo.</title>
-    <script src="lib/angular.min.js"></script>
-    <script src="lib/anychart-bundle.min.js"></script>
-    <script src="res/resources-simple.js"></script>
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="../node_modules/anychart/dist/js/anychart-base.min.js"></script>
+    <script src="../node_modules/anychart/dist/js/anychart-gantt.min.js"></script>
+    <script src="../node_modules/anychart/dist/js/anychart-ui.min.js"></script>
+    <script src="../node_modules/anychart/dist/js/anychart-exports.min.js"></script>
     <script src="../dist/anychart-angularjs.min.js"></script>
-    <link rel="stylesheet" href="res/anychart-ui.css">
+    <link rel="stylesheet" href="../node_modules/anychart/dist/css/anychart-ui.min.css">
+    <link rel="stylesheet" href="../node_modules/anychart/dist/fonts/css/anychart-font.min.css">
+    <script src="res/resources-simple.js"></script>
     <style>
         html, body {
             width: 100%;
@@ -23,7 +27,7 @@
             angular
                     .module('MyApp', ['anychart-angularjs'])
                     .controller('MyCtrl', ['$scope', function($scope) {
-                        $scope.myData = anychart.data.tree(getData(), anychart.enums.TreeFillingMethod.AS_TABLE)
+                        $scope.myData = anychart.data.tree(getData(), 'as-table');
 
                         // create resource gantt chart
                         var chart = anychart.ganttResource();
@@ -33,51 +37,51 @@
                         }
 
                         // External events
-                        chart.listen(anychart.enums.EventType.ROW_CLICK, function(e) {
+                        chart.listen('rowClick', function(e) {
                             var msg = e['item'].get('name');
                             if (e['period']) msg += ', Period #' + (e['periodIndex'] + 1);
-                            log(anychart.enums.EventType.ROW_CLICK, msg);
+                            log('rowClick', msg);
                         });
 
-                        chart.listen(anychart.enums.EventType.ROW_SELECT, function(e) {
+                        chart.listen('rowSelect', function(e) {
                             var msg = e['item'].get('name');
-                            log(anychart.enums.EventType.ROW_SELECT, msg);
+                            log('rowSelect', msg);
                         });
 
-                        chart.listen(anychart.enums.EventType.ROW_DBL_CLICK, function(e) {
-                            var msg = e['item'].get('name');
-                            if (e['period']) msg += ', Period #' + (e['periodIndex'] + 1);
-                            log(anychart.enums.EventType.ROW_DBL_CLICK, msg);
-                        });
-
-                        chart.listen(anychart.enums.EventType.ROW_MOUSE_OVER, function(e) {
+                        chart.listen('rowDblClick', function(e) {
                             var msg = e['item'].get('name');
                             if (e['period']) msg += ', Period #' + (e['periodIndex'] + 1);
-                            log(anychart.enums.EventType.ROW_MOUSE_OVER, msg);
+                            log('rowDblClick', msg);
                         });
 
-                        chart.listen(anychart.enums.EventType.ROW_MOUSE_MOVE, function(e) {
+                        chart.listen('rowMouseOver', function(e) {
                             var msg = e['item'].get('name');
                             if (e['period']) msg += ', Period #' + (e['periodIndex'] + 1);
-                            log(anychart.enums.EventType.ROW_MOUSE_MOVE, msg);
+                            log('rowMouseOver', msg);
                         });
 
-                        chart.listen(anychart.enums.EventType.ROW_MOUSE_OUT, function(e) {
+                        chart.listen('rowMouseMove', function(e) {
                             var msg = e['item'].get('name');
                             if (e['period']) msg += ', Period #' + (e['periodIndex'] + 1);
-                            log(anychart.enums.EventType.ROW_MOUSE_OUT, msg);
+                            log('rowMouseMove', msg);
                         });
 
-                        chart.listen(anychart.enums.EventType.ROW_MOUSE_UP, function(e) {
+                        chart.listen('rowMouseOut', function(e) {
                             var msg = e['item'].get('name');
                             if (e['period']) msg += ', Period #' + (e['periodIndex'] + 1);
-                            log(anychart.enums.EventType.ROW_MOUSE_UP, msg);
+                            log('rowMouseOut', msg);
                         });
 
-                        chart.listen(anychart.enums.EventType.ROW_MOUSE_DOWN, function(e) {
+                        chart.listen('rowMouseUp', function(e) {
                             var msg = e['item'].get('name');
                             if (e['period']) msg += ', Period #' + (e['periodIndex'] + 1);
-                            log(anychart.enums.EventType.ROW_MOUSE_DOWN, msg);
+                            log('rowMouseUp', msg);
+                        });
+
+                        chart.listen('rowMouseDown', function(e) {
+                            var msg = e['item'].get('name');
+                            if (e['period']) msg += ', Period #' + (e['periodIndex'] + 1);
+                            log('rowMouseDown', msg);
                         });
 
                         $scope.ch = chart;

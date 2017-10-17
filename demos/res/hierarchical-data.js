@@ -126,7 +126,7 @@ function getData() {
           'connector': [
             {
               'connectTo': 8,
-              'connectorType': anychart.enums.ConnectorType.FINISH_START
+              'connectorType': 'finish-start'
             }
           ]
         }

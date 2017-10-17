@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Anychart AngularJS plugin demo.</title>
-    <script src="lib/angular.min.js"></script>
-    <script src="lib/anychart-bundle.min.js"></script>
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="../node_modules/anychart/dist/js/anychart-base.min.js"></script>
+    <script src="../node_modules/anychart/dist/js/anychart-ui.min.js"></script>
+    <script src="../node_modules/anychart/dist/js/anychart-exports.min.js"></script>
     <script src="../dist/anychart-angularjs.min.js"></script>
-    <link rel="stylesheet" href="res/anychart-ui.css">
+    <link rel="stylesheet" href="../node_modules/anychart/dist/css/anychart-ui.min.css">
+    <link rel="stylesheet" href="../node_modules/anychart/dist/fonts/css/anychart-font.min.css">
     <style>
         html, body {
             width: 100%;
@@ -33,13 +36,13 @@
                 chart.yAxis().title('DTI');
 
                 // format y axis labels
-                chart.yAxis().labels().textFormatter("{%Value}%");
+                chart.yAxis().labels().format("{%Value}%");
 
                 // create extra y axis on the right
                 // primary Y Scale setup earlier is used by default
                 // setting it up explictly look like this: chart.yAxis(1).scale(chart.yScale());
                 chart.yAxis(1).orientation('right').enabled(true);
-                chart.yAxis(1).labels().textFormatter("{%Value}%");
+                chart.yAxis(1).labels().format("{%Value}%");
 
                 // create range axes markers
                 chart.rangeMarker().from(20).to(28).fill('#4db6ac 0.4');
@@ -121,9 +124,9 @@
                         var seriesData_3 = dataSet.mapAs({x: [0], value: [3]});
 
                         // create 3 line series and tune them using chaining calls
-                        chart.line(seriesData_1).name('Beechum County').hoverMarkers().enabled(true).type('circle').size(4);
-                        chart.line(seriesData_2).name('Greenbow County').hoverMarkers().enabled(true).type('circle').size(4);
-                        chart.line(seriesData_3).name('Belle Reve Parish').hoverMarkers().enabled(true).type('circle').size(4);
+                        chart.line(seriesData_1).name('Beechum County').hovered().markers().enabled(true).type('circle').size(4);
+                        chart.line(seriesData_2).name('Greenbow County').hovered().markers().enabled(true).type('circle').size(4);
+                        chart.line(seriesData_3).name('Belle Reve Parish').hovered().markers().enabled(true).type('circle').size(4);
 
                         //Notify plugin about we use a custom instance of chart.
                         $scope.ch = chart;

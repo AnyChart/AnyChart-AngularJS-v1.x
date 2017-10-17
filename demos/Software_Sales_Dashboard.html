@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
 
     <title>Anychart AngularJS plugin demo.</title>
-    <script src="lib/angular.min.js"></script>
-    <script src="lib/anychart-bundle.min.js"></script>
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="../node_modules/anychart/dist/js/anychart-base.min.js"></script>
+    <script src="../node_modules/anychart/dist/js/anychart-ui.min.js"></script>
+    <script src="../node_modules/anychart/dist/js/anychart-exports.min.js"></script>
     <script src="../dist/anychart-angularjs.min.js"></script>
-    <link rel="stylesheet" href="res/anychart-ui.css">
+    <link rel="stylesheet" href="../node_modules/anychart/dist/css/anychart-ui.min.css">
+    <link rel="stylesheet" href="../node_modules/anychart/dist/fonts/css/anychart-font.min.css">
     <style>
         html, body {
             width: 100%;
@@ -55,16 +58,16 @@
                 var xAxis = chart.xAxis();
                 xAxis.title(false);
                 xAxis.staggerMode(false);
-                chart.yAxis().labels().textFormatter(function() {
+                chart.yAxis().labels().format(function() {
                     return formatMoney(parseInt(this.value), 0, '.', ',');
                 });
 
                 // Create area series
                 unitSeries = chart.area();
-                unitSeries.tooltip().titleFormatter(function() {
+                unitSeries.tooltip().format(function() {
                     return this.x
                 });
-                unitSeries.tooltip().textFormatter(function() {
+                unitSeries.tooltip().format(function() {
                     return '$' + formatMoney(this.value, 0, '.', ',')
                 });
                 return chart;
@@ -82,10 +85,10 @@
 
             // Setup same settings for all charts
             function setupBarSeriesSettings(series) {
-                series.tooltip().titleFormatter(function() {
+                series.tooltip().format(function() {
                     return this.x
                 });
-                series.tooltip().textFormatter(function() {
+                series.tooltip().format(function() {
                     return '$' + formatMoney(this.value, 0, '.', ',')
                 });
                 series.listen('pointClick', function(e) {
