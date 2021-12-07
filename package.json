@@ -40,6 +40,6 @@
   "homepage": "https://github.com/AnyChart/AnyChart-AngularJS.git",
   "dependencies": {
     "angular": "^1.6.7",
-    "anychart": "^8.0.0"
+    "anychart": "latest"
   }
 }
